@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Scheherazade+New:wght@400;700&family=Noto+Serif+Bengali:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --green-deep: #0a3d2e;
+  --green-mid: #145c43;
+  --green-bright: #1a7a58;
+  --green-light: #e8f5ef;
+  --gold: #c9a227;
+  --gold-light: #f0e2b0;
+  --gold-pale: #fdf8ec;
+  --cream: #faf8f3;
+  --text-primary: #1a1a1a;
+  --text-muted: #5a6a62;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--text-primary);
+  font-family: 'Lora', 'Noto Serif Bengali', serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Islamic geometric pattern background utility */
+.pattern-bg {
+  background-image:
+    repeating-linear-gradient(45deg, rgba(201,162,39,0.04) 0, rgba(201,162,39,0.04) 1px, transparent 0, transparent 50%),
+    repeating-linear-gradient(-45deg, rgba(201,162,39,0.04) 0, rgba(201,162,39,0.04) 1px, transparent 0, transparent 50%);
+  background-size: 20px 20px;
+}
+
+.arabesque {
+  background-image: radial-gradient(ellipse at top, rgba(201,162,39,0.08) 0%, transparent 60%);
+}
+
+/* Arabic bismillah text */
+.arabic-text {
+  font-family: 'Scheherazade New', serif;
+  direction: rtl;
+}
+
+/* Bengali serif body text */
+.bangla {
+  font-family: 'Noto Serif Bengali', serif;
+  line-height: 1.8;
+}
+
+/* Gold shimmer on hover */
+.gold-hover {
+  transition: color 0.2s, border-color 0.2s;
+}
+.gold-hover:hover { color: var(--gold); border-color: var(--gold); }
+
+/* Ornamental divider */
+.ornament::before,
+.ornament::after {
+  content: '✦';
+  color: var(--gold);
+  margin: 0 0.75rem;
+  font-size: 0.7em;
+  opacity: 0.7;
+}
+
+/* Card elevated */
+.card {
+  background: #fff;
+  border: 1px solid rgba(201,162,39,0.2);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(10,61,46,0.06);
+}
+
+/* Trust badge style */
+.trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--green-light);
+  color: var(--green-mid);
+  border: 1px solid rgba(20,92,67,0.2);
+  border-radius: 100px;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  font-family: 'Noto Serif Bengali', serif;
+}
+
+/* Slot progress bar */
+.slot-bar {
+  height: 5px;
+  border-radius: 3px;
+  background: #e8f0ec;
+  overflow: hidden;
+}
+.slot-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #1a7a58, #145c43);
+  transition: width 0.5s ease;
+}
+.slot-bar-fill.warn { background: linear-gradient(90deg, #d97706, #b45309); }
+.slot-bar-fill.full { background: linear-gradient(90deg, #dc2626, #991b1b); }
+
+/* Fade-in animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.5s ease both; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+
+/* Green CTA button */
+.btn-primary {
+  background: var(--green-deep);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-primary:hover { background: var(--green-mid); }
+.btn-primary:active { transform: scale(0.98); }
+
+.btn-gold {
+  background: var(--gold);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-gold:hover { background: #b8911f; }
+
+.btn-outline {
+  background: transparent;
+  color: var(--green-deep);
+  border: 1.5px solid var(--green-deep);
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-outline:hover { background: var(--green-deep); color: #fff; }
+
+/* Nav */
+.navbar {
+  background: var(--green-deep);
+  border-bottom: 2px solid var(--gold);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Input */
+input, select, textarea {
+  font-family: 'Noto Serif Bengali', serif;
+}
+
+.form-input {
+  width: 100%;
+  border: 1.5px solid #d4c89a;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 0.95rem;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-input:focus { border-color: var(--green-bright); box-shadow: 0 0 0 3px rgba(26,122,88,0.1); }
